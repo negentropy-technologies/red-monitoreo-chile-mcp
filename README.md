@@ -1,4 +1,4 @@
-# red_monitoreo_chile
+# MCP Red de Monitoreo de Chile 
 
 [![tests](https://img.shields.io/github/actions/workflow/status/negentropy-technologies/red-monitoreo-chile-mcp/tests.yml?branch=master&label=tests)](https://github.com/negentropy-technologies/red-monitoreo-chile-mcp/actions/workflows/tests.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
