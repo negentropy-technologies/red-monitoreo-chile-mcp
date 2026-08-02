@@ -34,7 +34,7 @@ Ejemplos de comportamiento inaceptable:
 
 Las instancias de comportamiento abusivo, acosador o inaceptable
 pueden reportarse a los mantenedores del proyecto en
-**rocio.ramirez@negentropycl**. Todas las quejas seran
+**rocio.ramirez@negentropy.cl**. Todas las quejas seran
 revisadas e investigadas de forma pronta y justa.
 
 ## Atribucion
