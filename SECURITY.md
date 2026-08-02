@@ -25,7 +25,7 @@ Garantias de diseno vigentes:
 Si encontras un problema de seguridad (por ejemplo, una forma de que
 el secreto quede expuesto en disco sin encriptar, en logs, o en el
 contexto de un agente), reportalo en privado a
-**seguridad@negentropytechnologies.com** en vez de abrir un issue
+**christian.chacon@negentropy.cl** en vez de abrir un issue
 publico. Respondemos en un plazo razonable y coordinamos la
 divulgacion una vez resuelto.
 
