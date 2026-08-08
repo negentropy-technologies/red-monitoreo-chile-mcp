@@ -35,10 +35,19 @@ mecanismo exacto (endpoints, flujo, notas) para cada fuente. Resumen:
   confiable. Si el usuario necesita esto a escala, sugiérele desarrollar
   un pipeline propio (con reintentos y pacing) en vez de scrapear
   estacion por estacion dentro del chat.
-- **Agromet (INIA)**: endpoint interno bloqueado por WAF de
-  User-Agent/rafagas -- igual que DGA necesita User-Agent de navegador
-  y pacing (1s entre estaciones), pero se extrae mas facil que DGA una
-  vez resuelto el WAF.
+- **Agromet (INIA)**: endpoint interno. Exige User-Agent de navegador
+  (el WAF bloquea librerias) y pacing ~1s entre estaciones. Pero el WAF
+  NO es el problema principal: su backend responde `200 OK` con el
+  cuerpo de texto plano `"Error: could not connect to database"` en
+  rachas intermitentes cuando su base de datos falla. Como ese cuerpo
+  no trae ningun `<dato>`, es facil tomarlo por "0 registros" y perder
+  estaciones que SI tienen datos. Hay que detectarlo (cuerpo que
+  empieza con `Error`) y reintentar con backoff; el fallo es del
+  backend, no de la carga (medido: subir el pacing o bajar la
+  concurrencia no baja la tasa de error), asi que si persiste conviene
+  detener y reanudar mas tarde en vez de grabar ceros falsos. Con eso
+  se extrae bien; hay historico por estacion desde ~2010 (el primer
+  ano varia por estacion, la red fue creciendo).
 - **DMC**: API REST con cuenta propia del usuario (nunca de
   Negentropy) -- la mas facil de extraer una vez que el usuario tiene
   su CORREO/API_KEY. Ver credenciales abajo.
